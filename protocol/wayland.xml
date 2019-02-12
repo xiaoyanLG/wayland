@@ -1769,7 +1769,7 @@
 
   </interface>
 
-  <interface name="wl_pointer" version="6">
+  <interface name="wl_pointer" version="7">
     <description summary="pointer input device">
       The wl_pointer interface represents one or more input devices,
       such as mice, which control the pointer location and pointer_focus
@@ -1784,42 +1784,6 @@
     <enum name="error">
       <entry name="role" value="0" summary="given wl_surface has another role"/>
     </enum>
-
-	<enum name="cursor_shape">
-      <description summary="system cursor">
-        Compositor provides a cursor scheme.
-      </description>
-      <entry name="ArrowCursor" value="0"/>
-      <entry name="UpArrowCursor" value="1"/>
-      <entry name="CrossCursor" value="2"/>
-      <entry name="WaitCursor" value="3"/>
-      <entry name="IBeamCursor" value="4"/>
-      <entry name="SizeVerCursor" value="5"/>
-      <entry name="SizeHorCursor" value="6"/>
-      <entry name="SizeBDiagCursor" value="7"/>
-      <entry name="SizeFDiagCursor" value="8"/>
-      <entry name="SizeAllCursor" value="9"/>
-      <entry name="BlankCursor" value="10"/>
-      <entry name="SplitVCursor" value="11"/>
-      <entry name="SplitHCursor" value="12"/>
-      <entry name="PointingHandCursor" value="12"/>
-      <entry name="ForbiddenCursor" value="14"/>
-      <entry name="WhatsThisCursor" value="15"/>
-      <entry name="BusyCursor" value="16"/>
-      <entry name="OpenHandCursor" value="17"/>
-      <entry name="ClosedHandCursor" value="18"/>
-      <entry name="DragCopyCursor" value="19"/>
-      <entry name="DragMoveCursor" value="20"/>
-      <entry name="DragLinkCursor" value="21"/>
-    </enum>
-
-    <request name="set_cursorshape">
-      <description summary="set the pointer cursor shape">
-        This interface is provided to the client to set the system cursor by shape.
-      </description>
-      <arg name="serial" type="uint" summary="serial of the enter event"/>
-      <arg name="shape" type="uint" enum="cursor_shape" summary="which shape in enum cursor_shape"/>
-    </request>
 	
     <request name="set_cursor">
       <description summary="set the pointer surface">
@@ -2126,6 +2090,44 @@
       <arg name="axis" type="uint" enum="axis" summary="axis type"/>
       <arg name="discrete" type="int" summary="number of steps"/>
     </event>
+	
+    <!-- Version 7 additions -->
+	
+    <enum name="cursor_shape">
+      <description summary="system cursor">
+        Compositor provides a cursor scheme.
+      </description>
+      <entry name="ArrowCursor" value="0"/>
+      <entry name="UpArrowCursor" value="1"/>
+      <entry name="CrossCursor" value="2"/>
+      <entry name="WaitCursor" value="3"/>
+      <entry name="IBeamCursor" value="4"/>
+      <entry name="SizeVerCursor" value="5"/>
+      <entry name="SizeHorCursor" value="6"/>
+      <entry name="SizeBDiagCursor" value="7"/>
+      <entry name="SizeFDiagCursor" value="8"/>
+      <entry name="SizeAllCursor" value="9"/>
+      <entry name="BlankCursor" value="10"/>
+      <entry name="SplitVCursor" value="11"/>
+      <entry name="SplitHCursor" value="12"/>
+      <entry name="PointingHandCursor" value="12"/>
+      <entry name="ForbiddenCursor" value="14"/>
+      <entry name="WhatsThisCursor" value="15"/>
+      <entry name="BusyCursor" value="16"/>
+      <entry name="OpenHandCursor" value="17"/>
+      <entry name="ClosedHandCursor" value="18"/>
+      <entry name="DragCopyCursor" value="19"/>
+      <entry name="DragMoveCursor" value="20"/>
+      <entry name="DragLinkCursor" value="21"/>
+    </enum>
+
+    <request name="set_cursorshape" since="7">
+      <description summary="set the pointer cursor shape">
+        This interface is provided to the client to set the system cursor by shape.
+      </description>
+      <arg name="serial" type="uint" summary="serial of the enter event"/>
+      <arg name="shape" type="uint" enum="cursor_shape" summary="which shape in enum cursor_shape"/>
+    </request>
   </interface>
 
   <interface name="wl_keyboard" version="6">
