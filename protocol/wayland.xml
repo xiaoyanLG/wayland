@@ -1784,7 +1784,7 @@
     <enum name="error">
       <entry name="role" value="0" summary="given wl_surface has another role"/>
     </enum>
-	
+
     <request name="set_cursor">
       <description summary="set the pointer surface">
 	Set the pointer surface, i.e., the surface that contains the
@@ -2090,9 +2090,9 @@
       <arg name="axis" type="uint" enum="axis" summary="axis type"/>
       <arg name="discrete" type="int" summary="number of steps"/>
     </event>
-	
+
     <!-- Version 7 additions -->
-	
+
     <enum name="cursor_shape">
       <description summary="system cursor">
         Compositor provides a cursor scheme.
